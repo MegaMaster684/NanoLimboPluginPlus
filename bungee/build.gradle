@@ -11,11 +11,13 @@ dependencies {
     implementation project(':api')
     implementation 'com.github.Revxrsal.Lamp:common:3.0.8'
     implementation 'com.github.Revxrsal.Lamp:bungee:3.0.8'
-    compileOnly 'org.spongepowered:configurate-yaml:4.1.2'
-    compileOnly 'net.md-5:bungeecord-api:1.21-R0.2'
+    compileOnly 'org.spongepowered:configurate-yaml:4.2.0'
+    compileOnly 'net.md-5:bungeecord-api:1.21-R0.4'
 }
 
 shadowJar {
+    archiveBaseName.set("NanoLimboPluginPlus-Bungee")
+    archiveClassifier.set("")
     manifest {
         attributes 'Main-Class': 'ua.nanit.limbo.NanoLimbo'
     }

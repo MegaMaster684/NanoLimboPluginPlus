@@ -6,7 +6,7 @@ plugins {
 
 allprojects {
     group 'ua.nanit'
-    version '1.0.15'
+    version '1.0.0'
 }
 
 subprojects {
@@ -18,8 +18,8 @@ subprojects {
     }
 
     tasks.withType(JavaCompile).configureEach {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     repositories {
@@ -27,17 +27,17 @@ subprojects {
     }
 
     dependencies {
-        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.13.1'
-        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.13.1'
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.13.4'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.13.4'
 
         implementation 'org.spongepowered:configurate-yaml:4.2.0'
-        implementation 'io.netty:netty-all:4.2.2.Final'
-        implementation "net.kyori:adventure-text-serializer-plain:4.21.0"
-        implementation "net.kyori:adventure-text-serializer-gson:4.21.0"
-        implementation "net.kyori:adventure-text-serializer-legacy:4.21.0"
-        implementation 'net.kyori:adventure-nbt:4.22.0'
+        implementation 'io.netty:netty-all:4.2.7.Final'
+        implementation "net.kyori:adventure-text-serializer-plain:4.25.0"
+        implementation "net.kyori:adventure-text-serializer-gson:4.25.0"
+        implementation "net.kyori:adventure-text-serializer-legacy:4.25.0"
+        implementation 'net.kyori:adventure-nbt:4.25.0'
         implementation 'com.grack:nanojson:1.10'
-        implementation 'com.google.code.gson:gson:2.13.1'
+        implementation 'com.google.code.gson:gson:2.13.2'
     }
 
     shadowJar {

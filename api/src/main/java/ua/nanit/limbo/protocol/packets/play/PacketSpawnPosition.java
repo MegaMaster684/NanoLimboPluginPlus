@@ -6,13 +6,15 @@ import ua.nanit.limbo.protocol.registry.Version;
 
 public class PacketSpawnPosition implements PacketOut {
 
+    private String dimensionName;
     private long x;
     private long y;
     private long z;
 
     public PacketSpawnPosition() { }
 
-    public PacketSpawnPosition(long x, long y, long z) {
+    public PacketSpawnPosition(long x, long y, long z, String dimensionName) {
+        this.dimensionName = dimensionName;
         this.x = x;
         this.y = y;
         this.z = z;
@@ -20,8 +22,14 @@ public class PacketSpawnPosition implements PacketOut {
 
     @Override
     public void encode(ByteMessage msg, Version version) {
+        if (version.moreOrEqual(Version.V1_21_9)) {
+            msg.writeString(dimensionName);
+        }
         msg.writeLong(encodePosition(x, y ,z));
         msg.writeFloat(0);
+        if (version.moreOrEqual(Version.V1_21_9)) {
+            msg.writeFloat(0);
+        }
     }
 
     @Override
